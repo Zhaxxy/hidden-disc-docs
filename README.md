@@ -118,6 +118,7 @@ Example token: `ODU4OTMyMDU4NjAwMjQzMjMw.YY4OOw.1hs4tL-J0dBMS_yKSTN6iuhqcPo` \*N
 - The last 12 bits are a count of every discord id, ever.
 #### Here's a chart (CREDIT: [ImLorio](https://github.com/ImLorio))
 ### And here's a python implementation of parsing the token
+![a chart with the discord userid, broken down into its simplest form](https://camo.githubusercontent.com/84c08bc973496c1ba7d4e0520466d60d446082f6eeba92af2f443dbe60428cf0/68747470733a2f2f692e696d6775722e636f6d2f77416b7a43746b2e706e67)
 ```py
 def get_bits(packed_bits: int, packed_bits_length: int, bits_offset: int, bits_length: int) -> int: # a function for extracting bits,
     if not(packed_bits >= 0 and packed_bits_length >= 0 and bits_offset >= 0 and bits_length >= 0): raise ValueError('No neagtive values allowed')
@@ -172,7 +173,6 @@ timestamp_seconds = timestamp_micro_seconds / 1000
 
 print(datetime.fromtimestamp(timestamp_seconds)) # 2019-12-03 20:25:28.335000
 ```
-![a chart with the discord userid, broken down into its simplest form](https://camo.githubusercontent.com/84c08bc973496c1ba7d4e0520466d60d446082f6eeba92af2f443dbe60428cf0/68747470733a2f2f692e696d6775722e636f6d2f77416b7a43746b2e706e67)
 ## Discord and Log-ins: What to Know & How to Abuse It (CREDIT: [Monst3red](https://github.com/Monst3red))
 The Discord login (in the browser's context, frontend) works as an iframe with the token inside, and it reloads to log you in. This can be abused (and it was, by [m-Phoenix852](https://gist.github.com/m-Phoenix852/b47fffb0fd579bc210420cedbda30b61)) for a token login script.
 Because of this, you can log into the Discord webapp with a user token using selenium's webdrivers.
